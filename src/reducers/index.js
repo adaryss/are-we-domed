@@ -1,8 +1,8 @@
-import { fetchAsteroidsReducer } from './fetchAsteroidsReducer';
+import asteroidsReducer from '../features/asteroidsSlice';
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-	asteroids: fetchAsteroidsReducer,
+	asteroids: asteroidsReducer,
 });
 
 export default rootReducer;
