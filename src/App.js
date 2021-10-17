@@ -2,19 +2,22 @@ import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAsteroids } from './fetcher/getAsteroids';
 import { useEffect } from 'react';
-import { asteroidsFetching } from "./actions/fetchAsteroidsActions";
+import { isFetching as asteroidsFetching } from "./features/asteroidsSlice";
+import { selectAsteroids } from './selectors/asteroids';
 
 const App = () => {
-  const asteroids = useSelector(state => state.asteroids);
+  const asteroids = useSelector(selectAsteroids);
   const dispatch = useDispatch();
 
   useEffect(() => {
     console.log('asteroids', asteroids);
   }, [asteroids]);
+
   const handleButtonClick = () => {
-    dispatch(asteroidsFetching(true));
     dispatch(getAsteroids());
+    dispatch(asteroidsFetching(true));
   }
+
   return (
     <div className="App">
       <header className="App-header">

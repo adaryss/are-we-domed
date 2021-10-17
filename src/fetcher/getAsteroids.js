@@ -1,4 +1,4 @@
-import { asteroidsFetchingError, asteroidsHasFetched } from "../actions/fetchAsteroidsActions";
+import { error as asteroidsFetchingError, hasFetched as asteroidsHasFetched } from "../features/asteroidsSlice";
 
 export const getAsteroids = (payload) => {
 	return (dispatch) => {
