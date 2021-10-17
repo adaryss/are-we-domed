@@ -1,22 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAsteroids } from './fetcher/getAsteroids';
+import { useEffect } from 'react';
+import { asteroidsFetching } from "./actions/fetchAsteroidsActions";
 
-function App() {
+const App = () => {
+  const asteroids = useSelector(state => state.asteroids);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('asteroids', asteroids);
+  }, [asteroids]);
+  const handleButtonClick = () => {
+    dispatch(asteroidsFetching(true));
+    dispatch(getAsteroids());
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={handleButtonClick}>Load asteroids</button>
+        <div>{JSON.stringify(asteroids)}</div>
       </header>
     </div>
   );
