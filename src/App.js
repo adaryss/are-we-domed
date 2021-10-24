@@ -1,21 +1,14 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAsteroids } from './fetcher/getAsteroids';
-import { useEffect } from 'react';
-import { isFetching as asteroidsFetching } from "./features/asteroidsSlice";
 import { selectAsteroids } from './selectors/asteroids';
 
 const App = () => {
   const asteroids = useSelector(selectAsteroids);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log('asteroids', asteroids);
-  }, [asteroids]);
-
   const handleButtonClick = () => {
     dispatch(getAsteroids());
-    dispatch(asteroidsFetching(true));
   }
 
   return (
