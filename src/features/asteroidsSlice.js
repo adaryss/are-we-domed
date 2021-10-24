@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getAsteroids } from "../fetcher/getAsteroids";
 
 const asteroidsSlice = createSlice({
   name: 'asteroids',
@@ -7,21 +8,19 @@ const asteroidsSlice = createSlice({
     error: null,
     asteroidsData: null,
   },
-  reducers: {
-    isFetching: (state, action) => {
-      state.isFetching = action.payload;
+  extraReducers: {
+    [getAsteroids.pending]: (state) => {
+      state.isFetching = true;
     },
-    error: (state, action) => {
+    [getAsteroids.rejected]: (state, action) => {
       state.isFetching = false;
       state.error = action.payload;
     },
-    hasFetched: (state, action) => {
-      state.isFetching = action.payload.isFetching;
-      state.asteroidsData = action.payload.data;
+    [getAsteroids.fulfilled]: (state, action) => {
+      state.isFetching = false;
+      state.asteroidsData = action.payload;
     },
   },
 });
-
-export const { isFetching, error, hasFetched } = asteroidsSlice.actions;
 
 export default asteroidsSlice.reducer;

@@ -1,4 +1,4 @@
-import { error as asteroidsFetchingError, hasFetched as asteroidsHasFetched } from "../features/asteroidsSlice";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const getStartDate = () => {
 	const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
@@ -9,23 +9,17 @@ const getStartDate = () => {
 
 const { REACT_APP_NASA_TOKEN } = process.env;
 
-export const getAsteroids = (payload) => {
-	return (dispatch) => {
+export const getAsteroids = createAsyncThunk(
+	'asteroids/getAsteroids',
+	async () => {
 		return fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${getStartDate()}&api_key=${REACT_APP_NASA_TOKEN}`)
 		.then((response) => {
-			
 			if (!response.ok) {
-				dispatch(asteroidsFetchingError(response.status));
+				throw new Error(response.statusText)
 			} else {
 				return response.json();
 			}
-
-		  })
-		  .then((responseJson) => {
-			  dispatch(asteroidsHasFetched({isFetching: false, data: responseJson}));
-		  })
-		  .catch((error) => {
-			throw new Error('Fetching went wrong', error);
-		  });
+		})
+		.then(json => json)
 	}
-}
+)
