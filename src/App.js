@@ -2,10 +2,15 @@ import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAsteroids } from './fetcher/getAsteroids';
 import { selectAsteroids } from './selectors/asteroids';
+import { useEffect } from 'react';
 
 const App = () => {
   const asteroids = useSelector(selectAsteroids);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('asteroids', asteroids);
+  }, [asteroids]);
 
   const handleButtonClick = () => {
     dispatch(getAsteroids());
