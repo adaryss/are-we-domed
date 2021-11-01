@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const getStartDate = () => {
-	const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+	const startDate = new Date(Date.now());
 	const formattedStartDate = startDate.toISOString().slice(0, 10);
 
 	return formattedStartDate;

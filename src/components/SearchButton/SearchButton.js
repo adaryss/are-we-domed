@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box } from "@mui/material";
+import { Container, Box, CircularProgress } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 
 export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
@@ -21,8 +21,14 @@ export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
         color="primary"
         size="large"
         loadingIndicator={
-          <Box component="span" sx={{ color: "#666" }}>
-            Fetching the sky...
+          <Box
+            component="span"
+            sx={{ color: "#666", display: "flex", alignItems: "center" }}
+          >
+            <CircularProgress color="inherit" size={14} />
+            <Box component="span" sx={{ marginLeft: "12px" }}>
+              Fetching the sky...
+            </Box>
           </Box>
         }
         sx={{ width: "70%" }}
