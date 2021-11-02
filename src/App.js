@@ -6,8 +6,10 @@ import { SearchButton } from "./components/SearchButton/SearchButton";
 import { AsteroidsOverview } from "./components/AsteroidsOverview/AsteroidsOverview";
 import { Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { Trans } from "@lingui/react";
+import { LangSelect } from "./components/LangSelect/LangSelect";
 
-const App = () => {
+const App = ({ handleLanguageChange, appLanguage }) => {
   const { asteroidsData, error, isFetching } = useSelector(selectAsteroids);
   const dispatch = useDispatch();
   const hasData = Boolean(asteroidsData);
@@ -17,16 +19,17 @@ const App = () => {
   };
 
   return (
-    <>
+    <Box sx={{ position: "relative" }}>
       <Container
         maxWidth={false}
         sx={{
-          minHeight: "100vh",
+          minHeight: "calc(100vh - 56px)",
           background: "#13294B",
           display: "flex",
           alignItems: "center",
           justifyContent: hasData ? "flex-start" : "center",
           flexDirection: "column",
+          paddingTop: hasData ? '40px' : 0,
         }}
       >
         <Container maxWidth="md">
@@ -34,7 +37,7 @@ const App = () => {
             variant="h1"
             sx={{ color: "#cecece", textAlign: "center" }}
           >
-            Are we doomed?
+            <Trans id="test_id" />
           </Typography>
         </Container>
         {Boolean(asteroidsData) ? (
@@ -57,12 +60,16 @@ const App = () => {
             background: "#cececea8",
           }}
         >
-          <Typography variant="body1" sx={{ color: "rgba(0,0,0,0.87)" }}>
+          <Typography variant="body1" sx={{ color: "#13294B" }}>
             Made with 😱 of asteroids | Powered by NASA
           </Typography>
         </Box>
       </footer>
-    </>
+      <LangSelect
+        handleLanguageChange={handleLanguageChange}
+        appLanguage={appLanguage}
+      />
+    </Box>
   );
 };
 

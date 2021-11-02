@@ -5,9 +5,12 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@lingui/detect-locale": "^3.12.1",
+    "@lingui/react": "^3.12.1",
     "@mui/icons-material": "^5.0.5",
     "@mui/lab": "^5.0.0-alpha.51",
     "@mui/material": "^5.0.4",
+    "@mui/styles": "^5.0.2",
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -23,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lingui:extract": "lingui extract",
+    "lingui:compile": "lingui compile"
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@lingui/cli": "^3.12.1",
+    "@lingui/macro": "^3.12.1"
   }
 }
