@@ -4,6 +4,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
+import { selectLang } from "../../selectors/lang";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +19,8 @@ const useStyles = makeStyles({
   },
 });
 
-export const LangSelect = ({ handleLanguageChange, appLanguage }) => {
+export const LangSelect = ({ handleLanguageChange }) => {
+  const appLanguage = useSelector(selectLang);
   const classes = useStyles();
   const [lang, setLang] = useState("");
 
