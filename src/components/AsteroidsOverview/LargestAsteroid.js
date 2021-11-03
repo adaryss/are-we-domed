@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react";
 import React from "react";
 import { useLargestAsteroid } from "../../hooks/useLargestAsteroid";
 import { AccordionContent } from "./AsteroidsAccordionSection/AccordionContent";
@@ -12,7 +13,7 @@ export const LargestAsteroid = () => {
       <AccordionContent
         dayData={largestAsteroid}
         dayKey={dayKey}
-        desc="The largest asteroid"
+        desc={<Trans id="largest_asteroid" />}
       />
     </Item>
   );

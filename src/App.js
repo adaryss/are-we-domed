@@ -1,69 +1,63 @@
-import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import { getAsteroids } from "./fetcher/getAsteroids";
-import { selectAsteroids } from "./selectors/asteroids";
-import { SearchButton } from "./components/SearchButton/SearchButton";
-import { AsteroidsOverview } from "./components/AsteroidsOverview/AsteroidsOverview";
-import { Container, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { i18n } from "@lingui/core";
 
-const App = () => {
-  const { asteroidsData, error, isFetching } = useSelector(selectAsteroids);
+import { getDetectedLang } from "./utils/getDetectedLang";
+import { updateLang } from "./features/langSlice";
+import { selectLang } from "./selectors/lang";
+import AppContent from "./components/AppContent";
+import { I18nProvider } from "@lingui/react";
+
+const getCatalog = async (locale) => {
+  const { messages } = await import(`./locales/${locale}/messages.js`);
+  return messages;
+};
+const detectedLang = getDetectedLang();
+const LANGUAGE_KEY = "language";
+
+export const LocalizedApp = () => {
   const dispatch = useDispatch();
-  const hasData = Boolean(asteroidsData);
+  const appLanguage = useSelector(selectLang);
+  const [catalogs, setCatalogs] = useState({});
 
-  const handleButtonClick = () => {
-    dispatch(getAsteroids());
-  };
+  async function handleLanguageChange(language) {
+    const newCatalog = await getCatalog(language);
+
+    const newCatalogs = { ...catalogs, [language]: newCatalog };
+
+    localStorage.setItem(LANGUAGE_KEY, language);
+    setCatalogs(newCatalogs);
+    dispatch(updateLang(language));
+  }
+
+  useEffect(() => {
+    const persistedLanguage = localStorage.getItem(LANGUAGE_KEY);
+    const userHasDifferentStorageLang =
+      persistedLanguage != null && appLanguage !== persistedLanguage;
+
+    const handleLanguageInitUpdate = async (language) => {
+      const newCatalog = await getCatalog(language);
+      const newCatalogs = { ...catalogs, [language]: newCatalog };
+      setCatalogs(newCatalogs);
+      dispatch(updateLang(language));
+    };
+
+    if (userHasDifferentStorageLang) {
+      handleLanguageInitUpdate(persistedLanguage);
+    } else {
+      handleLanguageInitUpdate(detectedLang);
+    }
+  }, []);
+
+  i18n.load(catalogs);
+  i18n.activate(appLanguage);
 
   return (
-    <>
-      <Container
-        maxWidth={false}
-        sx={{
-          minHeight: "100vh",
-          background: "#13294B",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: hasData ? "flex-start" : "center",
-          flexDirection: "column",
-        }}
-      >
-        <Container maxWidth="md">
-          <Typography
-            variant="h1"
-            sx={{ color: "#cecece", textAlign: "center" }}
-          >
-            Are we doomed?
-          </Typography>
-        </Container>
-        {Boolean(asteroidsData) ? (
-          <AsteroidsOverview asteroidsData={asteroidsData} />
-        ) : (
-          <SearchButton
-            handleButtonClick={handleButtonClick}
-            isFetching={isFetching}
-            hasError={error}
-          />
-        )}
-      </Container>
-      <footer>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "16px 0",
-            background: "#cececea8",
-          }}
-        >
-          <Typography variant="body1" sx={{ color: "rgba(0,0,0,0.87)" }}>
-            Made with 😱 of asteroids | Powered by NASA
-          </Typography>
-        </Box>
-      </footer>
-    </>
+    <I18nProvider i18n={i18n}>
+      <AppContent
+        handleLanguageChange={handleLanguageChange}
+        appLanguage={appLanguage}
+      />
+    </I18nProvider>
   );
 };
-
-export default App;

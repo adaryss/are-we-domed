@@ -3,13 +3,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Item } from "./Item";
 import { usePotentiallyDangerousItems } from "../../hooks/usePotentiallyDangerousItems";
+import { Trans } from "@lingui/react";
 
 export const NearbyAsteroids = ({ asteroidsData }) => (
   <Item>
     <Typography variant="h2" sx={{ color: "rgba(0, 0, 0, 0.8)" }}>
       {asteroidsData.element_count}
     </Typography>
-    <Typography variant="subtitle1">nearby asteroids</Typography>
+    <Typography variant="subtitle1">
+      <Trans id="nearby_asteroids" />
+    </Typography>
   </Item>
 );
 
@@ -26,7 +29,7 @@ export const DangerousAsteroids = () => {
         {dangerousAsteroids.length}
       </Typography>
       <Typography variant="subtitle1">
-        potentially dangerous asteroids
+        <Trans id="potentially_dangerous_asteroids" />
       </Typography>
     </Item>
   );

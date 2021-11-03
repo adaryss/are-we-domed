@@ -2,11 +2,12 @@ import React from "react";
 import { roundNumberTwoDecimals } from "../../../utils/roundNumberTwoDecimals";
 import { InfoItem } from "./InfoItem";
 import PropTypes from "prop-types";
+import { Trans } from "@lingui/react";
 
 export const RightColItems = ({ dayData: { close_approach_data } }) => (
   <>
     <InfoItem
-      title="Miss distance"
+      title={<Trans id="miss_distance" />}
       content={
         <>
           {Math.round(
@@ -21,7 +22,7 @@ export const RightColItems = ({ dayData: { close_approach_data } }) => (
       }
     />
     <InfoItem
-      title="Speed"
+      title={<Trans id="speed" />}
       content={
         <>
           {roundNumberTwoDecimals(
@@ -31,7 +32,7 @@ export const RightColItems = ({ dayData: { close_approach_data } }) => (
           {roundNumberTwoDecimals(
             close_approach_data[0].relative_velocity.miles_per_hour
           ).toLocaleString("en-US")}{" "}
-          mi./hr
+          mi./h
         </>
       }
     />

@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react";
 import React from "react";
 import { useClosestAsteroid } from "../../hooks/useClosestAsteroid";
 import { AccordionContent } from "./AsteroidsAccordionSection/AccordionContent";
@@ -9,7 +10,7 @@ export const ClosestAsteroid = () => {
 
   return (
     <Item>
-      <AccordionContent dayData={closestAsteroid} dayKey={dayKey} desc="The closest asteroid" />
+      <AccordionContent dayData={closestAsteroid} dayKey={dayKey} desc={<Trans id="closest_asteroid" />} />
     </Item>
   );
 };
