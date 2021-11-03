@@ -11,8 +11,11 @@ import { Divider } from "@mui/material";
 import { AccordionContent } from "./AccordionContent";
 import { isDayContainsDangerousAsteroids } from "../../../utils/isDayContainsDangerousAsteroids";
 import { Trans } from "@lingui/react";
+import { useSelector } from "react-redux";
+import { selectLang } from "../../../selectors/lang";
 
 export const AsteroidsAccordionSection = ({ nearObjects }) => {
+  const appLang = useSelector(selectLang);
   const nearObjectsKeys = Object.keys(nearObjects).sort();
 
   return (
@@ -43,7 +46,7 @@ export const AsteroidsAccordionSection = ({ nearObjects }) => {
               }}
             >
               <Typography variant="h6" color="#13294B">
-                {formatDay(dayKey)}
+                {formatDay(dayKey, "full", appLang)}
               </Typography>
               {isDayContainsDangerousAsteroids(nearObjects[dayKey]) && (
                 <Box
