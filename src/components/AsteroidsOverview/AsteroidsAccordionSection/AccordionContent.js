@@ -4,6 +4,7 @@ import { LeftColItems } from "./LeftColItems";
 import PropTypes from "prop-types";
 import { RightColItems } from "./RightColItems";
 import { Box } from "@mui/system";
+import { Trans } from "@lingui/react";
 
 export const AccordionContent = ({ dayData, dayKey, desc }) => {
   const title = desc ? (
@@ -16,11 +17,15 @@ export const AccordionContent = ({ dayData, dayKey, desc }) => {
         {desc}
       </Typography>
       <Typography sx={{ color: "rgba(0, 0, 0, 0.87)" }} variant="body1">
-        Name: {dayData.name}
+        <Trans id="name" />{' '}
+        {dayData.name}
       </Typography>
     </div>
   ) : (
-    <Typography variant="h6">Asteroid name: {dayData.name}</Typography>
+    <Typography variant="h6">
+      <Trans id="asteroid_name" />{' '}
+      {dayData.name}
+    </Typography>
   );
 
   return (

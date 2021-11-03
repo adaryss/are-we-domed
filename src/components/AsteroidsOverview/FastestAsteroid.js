@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react";
 import React from "react";
 import { useFastestAsteroid } from "../../hooks/useFastestAsteroid";
 import { AccordionContent } from "./AsteroidsAccordionSection/AccordionContent";
@@ -9,7 +10,7 @@ export const FastestAsteroid = () => {
 
   return (
     <Item>
-      <AccordionContent dayData={fastestAsteroid} dayKey={dayKey} desc="The fastest asteroid" />
+      <AccordionContent dayData={fastestAsteroid} dayKey={dayKey} desc={<Trans id="fastest_asteroid" />} />
     </Item>
   );
 };

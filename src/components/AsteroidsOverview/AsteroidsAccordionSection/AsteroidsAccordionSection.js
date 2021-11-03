@@ -10,6 +10,7 @@ import { formatDay } from "../../../utils/formatDay";
 import { Divider } from "@mui/material";
 import { AccordionContent } from "./AccordionContent";
 import { isDayContainsDangerousAsteroids } from "../../../utils/isDayContainsDangerousAsteroids";
+import { Trans } from "@lingui/react";
 
 export const AsteroidsAccordionSection = ({ nearObjects }) => {
   const nearObjectsKeys = Object.keys(nearObjects).sort();
@@ -25,7 +26,7 @@ export const AsteroidsAccordionSection = ({ nearObjects }) => {
           marginBottom: "16px",
         }}
       >
-        Detailed data for next 7 days
+        <Trans id="detailed_data_7_days" />
       </Typography>
       {nearObjectsKeys.map((dayKey, index) => (
         <Accordion key={`${dayKey}-${index}`}>

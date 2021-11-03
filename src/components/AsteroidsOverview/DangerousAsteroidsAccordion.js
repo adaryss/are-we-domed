@@ -10,19 +10,20 @@ import { usePotentiallyDangerousItems } from "../../hooks/usePotentiallyDangerou
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AccordionContent } from "./AsteroidsAccordionSection/AccordionContent";
 import { Box } from "@mui/system";
+import { Trans } from "@lingui/react";
 
 export const DangerousAsteroidsAccordion = () => {
   const dangerousAsteroids = usePotentiallyDangerousItems();
 
   return (
-    <Box sx={{ marginTop: "28px" }}>
+    <Box sx={{ marginTop: "44px" }}>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           id={`dangerous-asteroids-accordion`}
         >
           <Typography variant="h6" color="#13294B">
-            Potentially dangerous asteroids
+            <Trans id="potentially_dangerous_asteroids_title" />
           </Typography>
         </AccordionSummary>
         <AccordionDetails>

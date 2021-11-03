@@ -5,6 +5,7 @@ import { getClosestApproachTime } from "../../../utils/getClosestApproachTime";
 import { roundNumberTwoDecimals } from "../../../utils/roundNumberTwoDecimals";
 import { InfoItem } from "./InfoItem";
 import PropTypes from "prop-types";
+import { Trans } from "@lingui/react";
 
 export const LeftColItems = ({
   dayData: {
@@ -16,7 +17,7 @@ export const LeftColItems = ({
 }) => (
   <>
     <InfoItem
-      title="The closest approach"
+      title={<Trans id="closest_approach" />}
       content={
         <>
           {getClosestApproachTime(
@@ -27,7 +28,7 @@ export const LeftColItems = ({
       }
     />
     <InfoItem
-      title="Average diameter"
+      title={<Trans id="average_diameter" />}
       content={
         <>
           {roundNumberTwoDecimals(
@@ -48,8 +49,8 @@ export const LeftColItems = ({
       }
     />
     <InfoItem
-      title="Potentially dangerous"
-      content={<>{is_potentially_hazardous_asteroid ? "Yes" : "No"}</>}
+      title={<Trans id="potentially_dangerous" />}
+      content={<>{is_potentially_hazardous_asteroid ? <Trans id="Yes" /> : <Trans id="No" /> }</>}
     />
   </>
 );

@@ -37,7 +37,7 @@ const App = ({ handleLanguageChange, appLanguage }) => {
             variant="h1"
             sx={{ color: "#cecece", textAlign: "center" }}
           >
-            <Trans id="test_id" />
+            <Trans id="title" />
           </Typography>
         </Container>
         {Boolean(asteroidsData) ? (
@@ -61,7 +61,7 @@ const App = ({ handleLanguageChange, appLanguage }) => {
           }}
         >
           <Typography variant="body1" sx={{ color: "#13294B" }}>
-            Made with 😱 of asteroids | Powered by NASA
+            <Trans id="footer_text" />
           </Typography>
         </Box>
       </footer>

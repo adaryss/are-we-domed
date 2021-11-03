@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Box, CircularProgress } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
+import { Trans } from "@lingui/react";
 
 export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
   return (
@@ -18,7 +19,7 @@ export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
         disabled={hasError !== null}
         loadingPosition="center"
         variant="contained"
-        color="primary"
+        color="warning"
         size="large"
         loadingIndicator={
           <Box
@@ -27,7 +28,7 @@ export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
           >
             <CircularProgress color="inherit" size={14} />
             <Box component="span" sx={{ marginLeft: "12px" }}>
-              Fetching the sky...
+              <Trans id="fetch_button_scanning" />
             </Box>
           </Box>
         }
@@ -36,10 +37,10 @@ export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
       >
         {hasError !== null ? (
           <Box component="span" sx={{ color: "#666" }}>
-            Scanning is broken
+            <Trans id="fetch_button_error" />
           </Box>
         ) : (
-          "Find out"
+          <Trans id="fetch_button_search" />
         )}
       </LoadingButton>
     </Container>
