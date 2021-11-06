@@ -13,7 +13,7 @@ import { DangerousAsteroidsAccordion } from "./DangerousAsteroidsAccordion";
 
 export const AsteroidsOverview = ({ asteroidsData }) => {
   return (
-    <Container>
+    <Box>
       <Box
         sx={{
           display: "flex",
@@ -26,7 +26,14 @@ export const AsteroidsOverview = ({ asteroidsData }) => {
         <DoomedAnswer />
       </Box>
 
-      <Container maxWidth="md">
+      <Container
+        maxWidth="md"
+        sx={{
+          "@media (max-width: 1199px)": {
+            padding: 0,
+          },
+        }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <NearbyAsteroids asteroidsData={asteroidsData} />
@@ -54,7 +61,7 @@ export const AsteroidsOverview = ({ asteroidsData }) => {
       <AsteroidsAccordionSection
         nearObjects={asteroidsData.near_earth_objects}
       />
-    </Container>
+    </Box>
   );
 };
 

@@ -16,14 +16,19 @@ export const AccordionContent = ({ dayData, dayKey, desc }) => {
       >
         {desc}
       </Typography>
-      <Typography sx={{ color: "rgba(0, 0, 0, 0.87)" }} variant="body1">
-        <Trans id="name" />{' '}
+      <Typography sx={{ color: "rgba(0, 0, 0, 0.87)" }} strong variant="body1">
+        <strong>
+          {" "}
+          <Trans id="name" />
+        </strong>{" "}
         {dayData.name}
       </Typography>
     </div>
   ) : (
     <Typography variant="h6">
-      <Trans id="asteroid_name" />{' '}
+      <strong>
+        <Trans id="asteroid_name" />
+      </strong>{" "}
       {dayData.name}
     </Typography>
   );
@@ -36,7 +41,12 @@ export const AccordionContent = ({ dayData, dayKey, desc }) => {
           item
           xs={12}
           md={6}
-          sx={{ borderRight: "1px solid rgba(0, 0, 0, 0.12)" }}
+          sx={{
+            borderRight: "1px solid rgba(0, 0, 0, 0.12)",
+            "@media (max-width: 899px)": {
+              borderRight: 0,
+            },
+          }}
         >
           <LeftColItems dayData={dayData} dayKey={dayKey} />
         </Grid>
