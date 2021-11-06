@@ -1,11 +1,12 @@
 {
   "No": "Ne",
   "Yes": "Ano",
+  "app_description": "Ujisti se, že je Země v bezpečí před asteroidy.",
   "asteroid_name": "Jméno asteroidu:",
   "average_diameter": "Průměrná velikost",
   "closest_approach": "Nejbližší průlet v",
   "closest_asteroid": "Nejbližší asteroid",
-  "detailed_data_7_days": "Detailní data na následujících 7 dní",
+  "detailed_data_7_days": "Detailní data na následujících 7 dní",
   "doomed_answer_maybe": "Možná",
   "doomed_answer_period": "(V následujících 7 dnech)",
   "doomed_answer_probably_no": "Asi ne",
@@ -15,7 +16,7 @@
   "fetch_button_error": "Hledání je rozbité",
   "fetch_button_scanning": "Prohledáváme oblohu...",
   "fetch_button_search": "Zjistit",
-  "footer_text": "Vytvořeno ze 😱 z asteroidů | Poháněno NASA",
+  "footer_text": "Vytvořeno ze 😱  z asteroidů | Poháněno NASA",
   "largest_asteroid": "Největší asteroid",
   "miss_distance": "Nejbližší vzdálenost",
   "name": "Jméno:",
@@ -24,5 +25,5 @@
   "potentially_dangerous_asteroids": "potenciálně nebezpečné asteroidy",
   "potentially_dangerous_asteroids_title": "Potenciálně nebezpečné asteroidy",
   "speed": "Rychlost",
-  "title": "Jsme odsouzení k záhubě?"
+  "title": "Jsme odsouzení k záhubě?"
 }

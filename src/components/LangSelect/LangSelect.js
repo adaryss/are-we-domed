@@ -39,7 +39,7 @@ export const LangSelect = ({ handleLanguageChange }) => {
         position: "absolute",
         top: "0",
         right: "0",
-        margin: "12px 12px 0 0",
+        margin: "16px 32px 0 0",
       }}
     >
       <FormControl>

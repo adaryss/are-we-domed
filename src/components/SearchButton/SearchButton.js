@@ -12,9 +12,13 @@ export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
         alignItems: "center",
         justifyContent: "center",
         marginTop: "24px",
+        "@media (max-width: 1199px)": {
+          padding: 0,
+        },
       }}
     >
       <LoadingButton
+        onClick={handleButtonClick}
         loading={isFetching}
         disabled={hasError !== null}
         loadingPosition="center"
@@ -24,16 +28,20 @@ export const SearchButton = ({ handleButtonClick, isFetching, hasError }) => {
         loadingIndicator={
           <Box
             component="span"
-            sx={{ color: "#666", display: "flex", alignItems: "center" }}
+            sx={{ color: "#666", display: "flex", alignItems: "center", }}
           >
             <CircularProgress color="inherit" size={14} />
-            <Box component="span" sx={{ marginLeft: "12px" }}>
+            <Box component="span" sx={{ marginLeft: "12px", whiteSpace: 'nowrap' }}>
               <Trans id="fetch_button_scanning" />
             </Box>
           </Box>
         }
-        sx={{ width: "70%" }}
-        onClick={handleButtonClick}
+        sx={{
+          width: "100%",
+          "@media (min-width: 1200px)": {
+            width: "70%",
+          },
+        }}
       >
         {hasError !== null ? (
           <Box component="span" sx={{ color: "#666" }}>

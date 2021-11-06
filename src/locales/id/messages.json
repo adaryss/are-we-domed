@@ -1,6 +1,7 @@
 {
   "No": "No",
   "Yes": "Yes",
+  "app_description": "app_description",
   "asteroid_name": "asteroid_name",
   "average_diameter": "average_diameter",
   "closest_approach": "closest_approach",
