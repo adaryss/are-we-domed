@@ -8,7 +8,7 @@ export const useClosestAsteroid  = () => {
 		const approachData = asteroid.close_approach_data[0].miss_distance.kilometers;
 		const currentClosestApproachData = closestAsteroid.close_approach_data[0].miss_distance.kilometers;
 
-		if (approachData > currentClosestApproachData) {
+		if (approachData < currentClosestApproachData) {
 			closestAsteroid = asteroid;
 		}
 	});
