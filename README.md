@@ -2,7 +2,7 @@
 App that search asteroids that will be near Earth in next 7 days.
 
 # What is used
-React.js, Redux, Materal UI, Lingui.js
+React.js, Redux, Material UI, Lingui.js
 
 ## Check the live version here:
 
