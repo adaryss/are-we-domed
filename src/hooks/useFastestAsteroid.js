@@ -5,10 +5,10 @@ export const useFastestAsteroid  = () => {
 	let fastestAsteroid = allAsteroids[0];
 
 	allAsteroids.forEach(asteroid => {
-		const speedData = asteroid.close_approach_data[0].relative_velocity.kilometers_per_hour;
-		const currentFastestData = fastestAsteroid.close_approach_data[0].relative_velocity.kilometers_per_hour;
+		const speedData = parseInt(asteroid.close_approach_data[0].relative_velocity.kilometers_per_hour);
+		const currentFastestData = parseInt(fastestAsteroid.close_approach_data[0].relative_velocity.kilometers_per_hour);
 
-		if (speedData < currentFastestData) {
+		if (speedData > currentFastestData) {
 			fastestAsteroid = asteroid;
 		}
 	});

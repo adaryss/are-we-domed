@@ -1,6 +1,6 @@
 {
-  "No": "Ne",
-  "Yes": "Ano",
+  "no": "Ne",
+  "yes": "Ano",
   "app_description": "Ujisti se, že je Země v bezpečí před asteroidy.",
   "asteroid_name": "Jméno asteroidu:",
   "average_diameter": "Průměrná velikost",
@@ -11,7 +11,7 @@
   "doomed_answer_period": "(V následujících 7 dnech)",
   "doomed_answer_probably_no": "Asi ne",
   "doomed_answer_probably_not_yet": "Zatím ne",
-  "doomed_answer_probably_yes": "Ano",
+  "doomed_answer_probably_yes": "Asi ano",
   "fastest_asteroid": "Nejrychlejší asteroid",
   "fetch_button_error": "Hledání je rozbité",
   "fetch_button_scanning": "Prohledáváme oblohu...",
