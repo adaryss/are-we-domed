@@ -5,8 +5,8 @@ export const useClosestAsteroid  = () => {
 	let closestAsteroid = allAsteroids[0];
 
 	allAsteroids.forEach(asteroid => {
-		const approachData = asteroid.close_approach_data[0].miss_distance.kilometers;
-		const currentClosestApproachData = closestAsteroid.close_approach_data[0].miss_distance.kilometers;
+		const approachData = parseInt(asteroid.close_approach_data[0].miss_distance.kilometers);
+		const currentClosestApproachData = parseInt(closestAsteroid.close_approach_data[0].miss_distance.kilometers);
 
 		if (approachData < currentClosestApproachData) {
 			closestAsteroid = asteroid;

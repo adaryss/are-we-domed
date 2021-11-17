@@ -58,9 +58,9 @@ export const LeftColItems = ({
         content={
           <>
             {is_potentially_hazardous_asteroid ? (
-              <Trans id="Yes" />
+              <Trans id="yes" />
             ) : (
-              <Trans id="No" />
+              <Trans id="no" />
             )}
           </>
         }

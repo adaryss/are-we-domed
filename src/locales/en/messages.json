@@ -1,6 +1,6 @@
 {
-  "No": "No",
-  "Yes": "Yes",
+  "no": "No",
+  "yes": "Yes",
   "app_description": "Be sure that Earth is safe from asteroids.",
   "asteroid_name": "Asteroid name:",
   "average_diameter": "Average diameter",
@@ -11,7 +11,7 @@
   "doomed_answer_period": "(in next 7 days)",
   "doomed_answer_probably_no": "Probably not",
   "doomed_answer_probably_not_yet": "Not yet",
-  "doomed_answer_probably_yes": "Yes",
+  "doomed_answer_probably_yes": "Probably yes",
   "fastest_asteroid": "The fastest asteroid",
   "fetch_button_error": "Fetching is broken",
   "fetch_button_scanning": "Fetching the sky...",
